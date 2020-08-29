@@ -48,12 +48,12 @@ body {
     align-items: center;
     justify-content: center;
     display: flex;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
-.overlay.active {
-    visibility: visible;
-}
+/*.overlay.active {*/
+/*    visibility: visible;*/
+/*}*/
 
 .popup {
     background: #F8F8F8 ;
@@ -95,28 +95,28 @@ body {
     margin-bottom: 40px;
     /*opacity: 0;*/
 }
-.popup h1 as{
+.popup h1 .dice1{
     font-size: 96px;
     font-weight: 300;
     margin-right: 250px;
-    margin-top: 110px;
+    margin-top: 40px;
     /*opacity: 0;*/
 }
-.popup h1 ab{
+.popup h1 .dice2{
     font-size: 96px;
     font-weight: 300;
-    margin-right: 100px;
-    margin-top: 110px;
+    margin-right: 30px;
+    margin-top: 40px;
     /*opacity: 0;*/
 }
-.popup a .dice1{
+.popup a1{
     font-size: 36px;
     font-weight: 300;
     margin-right: 250px;
     margin-top: 60px;
     /*opacity: 0;*/
 }
-.popup a .dice2{
+.popup a2{
     font-size: 36px;
     font-weight: 300;
     margin-right:  20px;
@@ -154,6 +154,12 @@ body {
 .popup form .btn-submit:hover {
     background: rgba(94,125,227, .9);
 }
+
+
+.clearfix {
+    overflow: auto;
+}
+
 
 /* ------------------------- */
 /* ANIMACIONES */
