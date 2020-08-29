@@ -1,4 +1,4 @@
-package com.springboot.joc_de_daus.controller;
+package com.springboot.joc_de_daus.service;
 
 import com.springboot.joc_de_daus.model.User;
 

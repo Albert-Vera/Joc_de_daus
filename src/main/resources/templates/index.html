@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class="contenedor mt-4">
+<div class="contenedor">
     <a href="/new" class="btn btn-warning">Insert player</a>
 
     <table class="table">
@@ -35,12 +35,13 @@
             <td>
                 <div class="clearfix">
                     <a class="botoncito" id="btn-abrir-popup">Play</a>
-                </div>
-                <!--                <button id="btn-abrir-popup" class="btn-abrir-popup"> Play </button>-->
-<!--                <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>-->
-<!--                <a class="botoncito" id="btn-abrir-popup">Play</a>-->
 
-                <!--                <a th:href="@{|/delete/ ${list.idStore}}" class="btn btn-danger">Eliminar</a>-->
+                    <!--                <button id="btn-abrir-popup" class="btn-abrir-popup"> Play </button>-->
+                    <!--                <button id="btn-abrir-popup" class="btn-abrir-popup">Abrir Ventana Emergente</button>-->
+                    <!--                <a class="botoncito" id="btn-abrir-popup">Play</a>-->
+                    <a th:href="@{#}" class="btn btn-warning">Edit</a>
+                    <a th:href="@{#}" class="btn btn-danger">Delete</a>
+                </div>
             </td>
         </tr>
         <!--        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>-->
@@ -63,15 +64,15 @@
                 <a class="dice1">4</a>
                 <a class="dice2"> 3</a>
             </h1>
-            <a1 class="btn btn-warning" id="ba">Roll Dice</a1>
-            <a2 class="btn btn-warning" id="bs">Return</a2>
+            <a1 class="btn btn-warning" >Roll Dice</a1>
+            <a2 class="btn btn-warning" >Return</a2>
         </div>
     </div>
 </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-        <script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>-->
+<!--<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 <script src="/static/popup.js"></script>
 </body>
 </html>

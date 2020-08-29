@@ -14,3 +14,7 @@ btnCerrarPopup.addEventListener('click', function(e){
     popup.classList.remove('active');
 });
 
+// document.getElementById('btn-abrir-popup').addEventListener("click", function (){
+//     document.getElementById('overlay').classList.add('active');
+//         document.getElementById('popup').classList.add('active');
+// })

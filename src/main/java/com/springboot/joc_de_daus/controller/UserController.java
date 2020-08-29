@@ -1,6 +1,7 @@
 package com.springboot.joc_de_daus.controller;
 
 import com.springboot.joc_de_daus.model.User;
+import com.springboot.joc_de_daus.service.ControlGame;
 import com.springboot.joc_de_daus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
