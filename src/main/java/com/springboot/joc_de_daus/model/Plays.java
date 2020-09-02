@@ -16,6 +16,9 @@ public class Plays {
     @Column(name = "win")
     private boolean win;
 
+    @Column(name = "userId")
+    private int userId;
+
     @ManyToOne (fetch = FetchType.LAZY,  cascade=CascadeType.REFRESH)
     @JoinColumn(name="id_user", insertable = false, updatable = false)
     private User userMany;
@@ -31,12 +34,19 @@ public class Plays {
         this.idPlay = idPlay;
     }
 
-    public int[] getPlay() {
-        return play;
+    public int getPlay_A() {
+
+        return this.play[0];
+    }
+    public int getPlay_B() {
+
+        return this.play[1];
     }
 
-    public void setPlay(int[] play) {
-        this.play = play;
+    public void setPlay(int a, int b) {
+
+        this.play[0] = a;
+        this.play[1] = b;
     }
 
     public boolean isWin() {
@@ -53,5 +63,13 @@ public class Plays {
 
     public void setUserMany(User userMany) {
         this.userMany = userMany;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

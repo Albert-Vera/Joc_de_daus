@@ -28,8 +28,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Optional<User> findById(Integer integer) {
-        return Optional.empty();
+    public Optional<User> findById(Integer id) {
+        return repo.findById(id);
+    }
+
+    @Override
+    public List<User> findByIdUser(Integer id) {
+        return repo.findByIdUser(id);
     }
 
     @Override

@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<div class="container mt-4">
+<div class="contenedor">
     <a href="/new" class="btn btn-warning">Insert player</a>
+
     <table class="table">
         <thead>
         <tr>
@@ -32,16 +33,38 @@
             <td th:text="${list.ranking}"></td>
 
             <td>
-                <a th:href="@{|/play/ ${list.getIdUser()}}" class="btn btn-warning">Play</a>
-                <a th:href="@{|/play/ ${list.getIdUser()}}" class="btn btn-warning">List of Plays</a>
-                <a th:href="@{|/editar/ ${list.getIdUser()}}" class="btn btn-warning">Edit</a>
-                <a th:href="@{|/deletePicture/ ${list.getIdUser()}}" class="btn btn-danger">Delete</a>
+
+                    <a class="botoncito" id="btn-abrir-popup">Play</a>
+                    <a th:href="@{#}" class="btn btn-warning">Edit</a>
+                    <a th:href="@{#}" class="btn btn-danger">Delete</a>
+
             </td>
         </tr>
         </tbody>
     </table>
-</div>
 
+
+
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <h3><a th:text="${listUsers.get(userPlayId).getUserName()}"></a></h3>
+            <h4>! Roll the dice !</h4>
+            <h1 >
+                <!--                    <a th:text="${listUsers.get(2).getUserName()}"></a>-->
+                <a1 class="dice1" th:text="${rollDice.getPlay_A()}">4</a1>
+                <a class="dice2" th:text="${rollDice.getPlay_B()}"> 3</a>
+            </h1>
+            <h4 th:text="${rollDice.isWin()}"></h4>
+            <a th:href="@{|/play/${userPlayId+1}}" class="btn btn-warning" >Roll Dice</a>
+            <a th:href="@{/list}" class="btn btn-warning" >Return</a>
+        </div>
+    </div>
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.4.1.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>-->
+<!--<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 <script src="/static/popup.js"></script>
 </body>
 </html>

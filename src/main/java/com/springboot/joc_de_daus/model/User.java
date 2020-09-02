@@ -17,13 +17,13 @@ public class User implements Serializable {
     private String userName;
 
     @Column(name = "counterPlays")
-    private int counterPlays;
+    private int counterPlays = 0;
 
     @Column(name = "ranking")
-    private double ranking;
+    private double ranking = 0;
 
     @Column(name = "playsWon")
-    private int playsWon;
+    private int playsWon = 0;
 
     @OneToMany(mappedBy="userMany" , fetch = FetchType.LAZY,  cascade=CascadeType.ALL)
     private List<Plays> playsList ;
@@ -59,8 +59,9 @@ public class User implements Serializable {
         return playsList;
     }
 
-    public void setPlaysList(List<Plays> playsList) {
-        this.playsList = playsList;
+    public void setPlaysList(Plays play) {
+
+        this.playsList.add(play);
     }
 
     public int getCounterPlays() {

@@ -1,0 +1,55 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <form action="/actualizar" method="POST" class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h4>Actualizar Player</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" name="idUser"
+                           readonly="readonly"
+                           class="form-control"
+                           th:value="${user.idUser}"/>
+                </div>
+                <div class="form-group">
+                    <label>UserName</label>
+                    <input type="text" th:field="*{user.userName}"
+                           class="form-control"
+                           th:value= "${user.userName}"/>
+                    <label>Counter Plays</label>
+                    <input type="text" name="counterPlays"
+                           readonly="readonly"
+                           class="form-control"
+                           th:value="${user.counterPlays}"/>
+                    <label>Ranking</label>
+                    <input type="text" name="ranking"
+                           readonly="readonly"
+                           class="form-control"
+                           th:value="${user.ranking}"/>
+                    <label>Plays Won</label>
+                    <input type="text" name="playsWon"
+                           readonly="readonly"
+                           class="form-control"
+                           th:value="${user.playsWon}"/>
+                    <hr color="blue" size=3>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <input type="submit" value="Actualizar" class="btn btn-info">
+                <a href="/list" class="btn btn-link">Regresar</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

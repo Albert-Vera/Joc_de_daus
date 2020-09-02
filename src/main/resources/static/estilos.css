@@ -1,13 +1,13 @@
-* {
-    padding: 0;
-    margin: 220;
-    box-sizing:border-box;
-}
+/** {*/
+/*    padding: 0;*/
+/*    margin: 20px;*/
+/*    box-sizing:border-box;*/
+/*}*/
 
-body {
-    background: #fff;
-    font-family: 'Open Sans', sans-serif;
-}
+/*body {*/
+/*    background: #e3e1dc;*/
+/*    font-family: 'Open Sans', sans-serif;*/
+/*}*/
 
 .contenedor {
     width: 90%;
@@ -16,7 +16,7 @@ body {
 }
 
 .contenedor .botoncito {
-    padding: 15px;
+    padding: 12px;
     margin-bottom: 10px;
     height: 40px;
     line-height: 40px;
@@ -30,9 +30,9 @@ body {
     transition: .3s ease all;
 }
 
-/*.contenedor article .btn-abrir-popup:hover {*/
-/*    background: rgba(94,125,227, .9);*/
-/*}*/
+.contenedor .btn-abrir-popup:hover {
+    background: rgba(94,125,227, .9);
+}
 
 /* ------------------------- */
 /* POPUP */
@@ -48,12 +48,12 @@ body {
     align-items: center;
     justify-content: center;
     display: flex;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
-.overlay.active {
-    visibility: visible;
-}
+/*.overlay.active {*/
+/*    visibility: visible;*/
+/*}*/
 
 .popup {
     background: #F8F8F8 ;
@@ -87,6 +87,7 @@ body {
     font-weight: 600;
     margin-bottom: 10px;
     /*opacity: 0;*/
+    /* Decrement "my-sec-counter" by 1 */
 }
 
 .popup h4 {
@@ -116,7 +117,7 @@ body {
     margin-top: 60px;
     /*opacity: 0;*/
 }
-.popup a2{
+.popup a{
     font-size: 36px;
     font-weight: 300;
     margin-right:  20px;
@@ -169,31 +170,33 @@ body {
 .popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
 /*.popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }*/
 
-/*@keyframes entradaTitulo {*/
-/*    from {*/
-/*        opacity: 0;*/
-/*        transform: translateY(-25px);*/
-/*    }*/
+@keyframes entradaTitulo {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
 
-/*    to {*/
-/*        transform: translateY(0);*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
-/*@keyframes entradaSubtitulo {*/
-/*    from {*/
-/*        opacity: 0;*/
-/*        transform: translateY(25px);*/
-/*    }*/
+@keyframes entradaSubtitulo {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
 
-/*    to {*/
-/*        transform: translateY(0);*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 /*@keyframes entradaInputs {*/
 /*    from { opacity: 0; }*/
 /*    to { opacity: 1; }*/
 /*}*/
+
+

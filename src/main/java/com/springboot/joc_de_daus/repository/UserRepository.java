@@ -24,8 +24,13 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public Optional<User> findById(Integer integer) {
-        return Optional.empty();
+    public Optional<User> findById(Integer id) {
+        return findById(id);
+    }
+
+
+    public List<User> findByIdUser(Integer id) {
+        return findByIdUser(id);
     }
 
     @Override
