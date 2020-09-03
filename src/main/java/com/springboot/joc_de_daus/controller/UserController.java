@@ -3,6 +3,7 @@ package com.springboot.joc_de_daus.controller;
 import com.springboot.joc_de_daus.model.Plays;
 import com.springboot.joc_de_daus.model.User;
 import com.springboot.joc_de_daus.service.ControlGame;
+import com.springboot.joc_de_daus.service.IPlaysService;
 import com.springboot.joc_de_daus.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,8 @@ public class UserController {
 
     @Autowired
     private IUserService iUserService;
+    @Autowired
+    private IPlaysService iPlaysService;
 
     private ControlGame controlGame = new ControlGame();
 
@@ -30,14 +33,15 @@ public class UserController {
     }
     @GetMapping("/play/{id}")
     public String play (@PathVariable int id, Model model){
-//        List<User> userPlayId = iUserService.findByIdUser(id-1);
-
         List<User> userList = iUserService.findAll();
         List<User> userById = iUserService.findByIdUser(id);
+        Plays plays = controlGame.rollDice(userById.get(0));
        // controlGame.asignarValoresUser(userList.get(id -1));
         model.addAttribute("userPlayId", id -1);
         model.addAttribute("listUsers", userList);
-        model.addAttribute("rollDice",controlGame.rollDice(userById.get(0)));
+        model.addAttribute("rollDice",plays);
+        iPlaysService.save(plays);
+        System.out.println(" vamos a ver  size : " + userById.size()+ " name  " + userById.get(0).getUserName()+ " won   "+ userById.get(0).getPlaysWon()+ " ranking   " + userById.get(0).getRanking()+ " counter " +userById.get(0).getCounterPlays() + "  size list  " +userById.get(0).getPlaysList().size());
 
         iUserService.save(userById.get(0));
         return "play";

@@ -2,6 +2,7 @@ package com.springboot.joc_de_daus.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -9,7 +10,7 @@ import java.util.List;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_user")
     private int idUser;
 
@@ -25,8 +26,13 @@ public class User implements Serializable {
     @Column(name = "playsWon")
     private int playsWon = 0;
 
-    @OneToMany(mappedBy="userMany" , fetch = FetchType.LAZY,  cascade=CascadeType.ALL)
+
+    @ManyToMany(mappedBy="userManyList" ) //, cascade = CascadeType.ALL
     private List<Plays> playsList ;
+
+//    @Column(name = "llista")
+//    @ElementCollection(targetClass=Plays.class, fetch = FetchType.LAZY)
+//    private List<Plays> llista = new ArrayList<>();
 
     public User() {
     }
@@ -38,6 +44,14 @@ public class User implements Serializable {
         this.playsWon = playsWon;
         this.playsList = playsList;
     }
+
+//    public List<Plays> getLlista() {
+//        return llista;
+//    }
+//
+//    public void setLlista(Plays play) {
+//        this.llista.add(play);
+//    }
 
     public int getIdUser() {
         return idUser;
@@ -60,8 +74,11 @@ public class User implements Serializable {
     }
 
     public void setPlaysList(Plays play) {
-
+        if(this.playsList == null){
+            this.playsList = new ArrayList<>();
+        }
         this.playsList.add(play);
+        System.out.println("anadido..... " + getUserName() + "  " +playsList.size());
     }
 
     public int getCounterPlays() {

@@ -1,12 +1,14 @@
 package com.springboot.joc_de_daus.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "plays")
 public class Plays {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_play")
     private int idPlay;
 
@@ -19,10 +21,16 @@ public class Plays {
     @Column(name = "userId")
     private int userId;
 
-    @ManyToOne (fetch = FetchType.LAZY,  cascade=CascadeType.REFRESH)
-    @JoinColumn(name="id_user", insertable = false, updatable = false)
-    private User userMany;
+    @ManyToMany (  cascade = CascadeType.ALL) //fetch = FetchType.LAZY,
+    @JoinTable(
+            name = "user_play",
+            joinColumns = {@JoinColumn(name = "FK_PLAY", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "FK_USER", nullable = false)}
+    )
+    private List<User> userManyList;
+   // @JoinColumn(name="id_user") //, insertable = false, updatable = false
 
+    //private Map<Integer, Integer> lista = new HashMap<>();
     public Plays() {
     }
 
@@ -57,12 +65,24 @@ public class Plays {
         this.win = win;
     }
 
-    public User getUserMany() {
-        return userMany;
+    public List<User> getUserManyList() {
+        return userManyList;
     }
 
-    public void setUserMany(User userMany) {
-        this.userMany = userMany;
+    public void setUserManyList(User userMany) {
+        if(this.userManyList == null){
+            this.userManyList = new ArrayList<>();
+        }
+        this.userManyList.add(userMany);
+    }
+
+    public int[] getPlay() {
+
+        return play;
+    }
+
+    public void setPlay(int[] play) {
+        this.play = play;
     }
 
     public int getUserId() {

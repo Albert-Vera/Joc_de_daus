@@ -14,8 +14,8 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public <S extends User> S save(S entity) {
-        return null;
+    public <S extends User> S save(S user) {
+        return save(user);
     }
 
     @Override

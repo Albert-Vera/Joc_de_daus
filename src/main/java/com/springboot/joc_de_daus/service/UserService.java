@@ -3,10 +3,12 @@ package com.springboot.joc_de_daus.service;
 import com.springboot.joc_de_daus.model.User;
 import com.springboot.joc_de_daus.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+//@Service
 public class UserService implements IUserService {
 
     @Autowired
@@ -18,8 +20,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public <S extends User> S save(S entity) {
-        return null;
+    public <S extends User> S save(S user) {
+        return repo.save(user);
     }
 
     @Override
