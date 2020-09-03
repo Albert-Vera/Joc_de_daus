@@ -49,13 +49,30 @@
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+            <table class="table">
             <h3><a th:text="${listUsers.get(userPlayId).getUserName()}"></a></h3>
-            <h4>! Roll the dice !</h4>
+            <h4>! List of plays !</h4>
+
+
+            <tr>
+                <th>Play</th>
+                <th>Dice One</th>
+                <th>Dice Two</th>
+                <th>is Win</th>
+            </tr>
             <h1 >
-                <!--                    <a th:text="${listUsers.get(2).getUserName()}"></a>-->
-                <a1 class="dice1" th:text="${rollDice.getPlay_A()}">4</a1>
-                <a class="dice2" th:text="${rollDice.getPlay_B()}"> 3</a>
+                <div class="lista">
+                <tr th:each="listPlay:${listPlays}">
+                    <td class="lista0" th:text="${listPlays.indexOf(listPlay)}"></td>
+                    <td class="lista1" th:text="${listPlay.getPlay_A()}"></td>
+                    <td class="lista2" th:text="${listPlay.getPlay_B()}"></td>
+                    <td class="lista3" th:text="${listPlay.isWin()}"></td><br>
+
+                </tr>
+                </div>
             </h1>
+
+            </table>
             <h4 th:text="${rollDice.isWin()}"></h4>
             <a th:href="@{|/play/${userPlayId+1}}" class="btn btn-warning" >Roll Dice</a>
             <a th:href="@{/list}" class="btn btn-warning" >Return</a>

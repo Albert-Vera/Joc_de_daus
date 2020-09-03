@@ -66,6 +66,9 @@
     height: 600px;
     transition: .3s ease all;
     transform: scale(0.7);
+
+    overflow:auto;
+
     /*opacity: 0;*/
 }
 
@@ -107,6 +110,20 @@
     font-size: 96px;
     font-weight: 300;
     margin-right: 30px;
+    margin-top: 40px;
+    /*opacity: 0;*/
+}
+.popup .lista1{
+    font-size: 46px;
+    font-weight: 300;
+    margin-right: 90px;
+    margin-top: 40px;
+    /*opacity: 0;*/
+}
+.popup .lista2{
+    font-size: 46px;
+    font-weight: 300;
+    margin-left: 10px;
     margin-top: 40px;
     /*opacity: 0;*/
 }

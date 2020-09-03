@@ -44,6 +44,9 @@ public class ControlGame {
         for (Plays as: user.getPlaysList()){
              System.out.println("size ................  " + as.getUserManyList().size());
             System.out.println("jugada: .....size playlist................ " + as.getUserManyList().get(0).getPlaysList().size()+"  .........  " +as.getPlay_B() + " ....  ");
+            for (int i = 0; i < user.getPlaysList().size(); i ++){
+                System.out.println("enumerar: " + user.getPlaysList().indexOf(user.getPlaysList().get(i)));
+            }
         }
 
         return plays;

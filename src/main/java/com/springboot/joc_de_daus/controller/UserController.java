@@ -46,6 +46,23 @@ public class UserController {
         iUserService.save(userById.get(0));
         return "play";
     }
+    @GetMapping("/play_list/{id}")
+    public String playList (@PathVariable int id, Model model){
+        List<User> userList2 = iUserService.findAll();
+        List<User> userById2 = iUserService.findByIdUser(id);
+        Plays plays = controlGame.rollDice(userById2.get(0));
+
+        // controlGame.asignarValoresUser(userList.get(id -1));
+        model.addAttribute("userPlayId", id -1);
+        model.addAttribute("listUsers", userList2);
+        model.addAttribute("rollDice",plays);
+        model.addAttribute("listPlays", userById2.get(0).getPlaysList());
+        iPlaysService.save(plays);
+        //System.out.println(" vamos a ver  size : " + userById2.size()+ " name  " + userById2.get(0).getUserName()+ " won   "+ userById.get(0).getPlaysWon()+ " ranking   " + userById.get(0).getRanking()+ " counter " +userById.get(0).getCounterPlays() + "  size list  " +userById.get(0).getPlaysList().size());
+
+        iUserService.save(userById2.get(0));
+        return "play_list";
+    }
 
     @GetMapping("/new")
     public String nuevo(User user){
